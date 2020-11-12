@@ -123,14 +123,6 @@ public final class MainInterpreter implements AutoCloseable {
     protected void initialize() throws Error {
         if (jepLibraryPath != null) {
             System.load(jepLibraryPath);
-        } else {
-            try {
-                System.loadLibrary("jep");
-            } catch (UnsatisfiedLinkError e) {
-                if (!LibraryLocator.findJepLibrary(pyConfig)) {
-                    throw e;
-                }
-            }
         }
 
         if (pyConfig != null) {
